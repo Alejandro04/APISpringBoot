@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -20,5 +21,20 @@ public class UserService {
 
     public UserModel saveUser(UserModel user){
         return userRepository.save(user);
+    }
+
+    public Optional<UserModel> getUserById(Long id){
+        return userRepository.findById(id);
+    }
+    public ArrayList<UserModel> getUserByPriority(Integer priority){
+        return userRepository.findByPriority(priority);
+    }
+    public boolean deleteUser(Long id){
+        try {
+            userRepository.deleteById(id);
+            return true;
+        }catch (Exception err){
+            return false;
+        }
     }
 }
