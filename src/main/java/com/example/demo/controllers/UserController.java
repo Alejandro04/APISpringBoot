@@ -42,4 +42,8 @@ public class UserController {
             return "User not deleted with id " + id;
         }
     }
+
+    public String hello(){
+        return "Hello world";
+    }
 }

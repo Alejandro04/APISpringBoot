@@ -14,6 +14,13 @@ public class UserModel {
     private String email;
     private Integer priority;
 
+    @Column(name="id_category")
+    private Integer idCategory;
+
+    @ManyToOne
+    @JoinColumn(name="id_category", insertable = false, updatable = false)
+    private CategoryModel category;
+
     public Long getId() {
         return id;
     }
@@ -44,5 +51,11 @@ public class UserModel {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+    public Integer getIdCategory() {
+        return idCategory;
+    }
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 }
